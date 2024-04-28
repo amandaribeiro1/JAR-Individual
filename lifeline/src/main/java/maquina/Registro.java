@@ -18,6 +18,7 @@ public class Registro {
     Conexao conectar = new Conexao();
     JdbcTemplate conec = conectar.getConexao();
     Looca looca = new Looca();
+
     private Timer permanenciaDeDados;
     private Double consumoCPU;
     private Double consumoRam;
@@ -52,9 +53,9 @@ public class Registro {
                     *------------------------------------*
                     |           Dados Coletados          |
                     *------------------------------------*
-                    |Consumo da CPU: %.2f
-                    |Consumo da RAM: %.2f
-                    |Consumo da Disco: %.2f
+                    |Consumo da CPU: %.2f                |
+                    |Consumo da RAM: %.2f                |
+                    |Consumo da Disco: %.2f              |
                     *------------------------------------*
                                 """.formatted(getConsumoCPU(), getConsumoRam(),getConsumoDisco()));
                         triggerRegistro(idMaquina, trigger); // Pos inserção de registro dos volateis

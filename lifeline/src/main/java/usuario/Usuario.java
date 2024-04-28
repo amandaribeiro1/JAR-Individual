@@ -42,6 +42,23 @@ public class Usuario {
 
     }
 
+    public Usuario() {
+    }
+
+    public void cadastro(String nome,
+                         String email,
+                         String senha,
+                         String endereco,
+                         String telefone,
+                         String cargo,
+                         String cpf){
+            con.update("""
+                    INSERT INTO usuario (nome, endereco, telefone, cargo, senha, email, cpf) VALUES
+                    (?, ?, ?, ?, ?, ?,?);
+                    """, nome, endereco, telefone, cargo, senha, email, cpf);
+    }
+
+
     public Integer getIdUsuario() {
         return idUsuario;
     }

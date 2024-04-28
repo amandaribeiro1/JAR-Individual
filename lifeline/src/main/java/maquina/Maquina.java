@@ -26,6 +26,7 @@ public class Maquina {
     private Double maxCpu;
     private Double maxRam;
     private Double maxDisco;
+    private String hostName;
 
     private void coletarDadosMaquina() {
         List<RedeInterface> listaRede = looca.getRede().getGrupoDeInterfaces().getInterfaces().stream().filter(redeInterface -> !redeInterface.getEnderecoIpv4().isEmpty()).toList();
@@ -36,6 +37,7 @@ public class Maquina {
         this.maxCpu = Conversor.converterFrequencia(looca.getProcessador().getFrequencia());
         this.maxRam = Conversor.converterDoubleDoisDecimais(Conversor.formatarBytes(looca.getMemoria().getTotal()));
         this.maxDisco = Conversor.converterDoubleTresDecimais(Conversor.formatarBytes(looca.getGrupoDeDiscos().getTamanhoTotal()));
+        this.hostName = looca.getRede().getParametros().getHostName();
     }
 
     private Integer escolhaMaquinas(Integer idUsuario) {
@@ -66,6 +68,15 @@ public class Maquina {
         }
         return 0;
     }
+
+    public void cadastrarNomeMaquina(Integer idUsuario){
+        System.out.println("Cadastrando nome da máquina...\n");
+        conec.update(
+                """
+                        INSERT INTO maquina (nomeMaquina,fkUsuario) VALUES (?,?);
+                        """, getHostName(),idUsuario);
+    }
+
     public void cadastrarMaquina(Integer idUsuario) {
         Integer idMaquina = escolhaMaquinas(idUsuario);
         if (idMaquina > 0) {
@@ -154,6 +165,12 @@ public class Maquina {
         return maxDisco;
     }
 
+    public String getHostName() {
+        return hostName;
+    }
+
+
+
     public String getMacAddress() {
         return macAddress;
     }
@@ -189,18 +206,25 @@ public class Maquina {
     public void setMaxDisco(Double maxDisco) {
         this.maxDisco = maxDisco;
     }
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
 
     @Override
     public String toString() {
         return "Maquina{" +
-                "idMaquina=" + idMaquina +
-                ", nome='" + nomeMaquina + '\'' +
+                "conectar=" + conectar +
+                ", conec=" + conec +
+                ", looca=" + looca +
+                ", idMaquina=" + idMaquina +
+                ", nomeMaquina='" + nomeMaquina + '\'' +
                 ", macAddress='" + macAddress + '\'' +
                 ", ip='" + ip + '\'' +
                 ", sistemaOperacional='" + sistemaOperacional + '\'' +
                 ", maxCpu=" + maxCpu +
                 ", maxRam=" + maxRam +
                 ", maxDisco=" + maxDisco +
+                ", hostName='" + hostName + '\'' +
                 '}';
     }
 }

@@ -16,11 +16,11 @@ public class ConexaoSql {
 
         dataSource.setUrl("jdbc:sqlserver://EC2" +
                 "database=lifeline;" +
-                "user=lifeline_user;" +
-                "password=urubu100;" +
+                "user=root;" +
+                "password=root;" +
                 "trustServerCertificate=true;");
-        dataSource.setUsername("lifeline_user");
-        dataSource.setPassword("urubu100");
+        dataSource.setUsername("root");
+        dataSource.setPassword("rootroot");
 
 
 
