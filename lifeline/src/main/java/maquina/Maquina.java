@@ -36,7 +36,7 @@ public class Maquina {
         this.sistemaOperacional = looca.getSistema().getSistemaOperacional();
         this.maxCpu = Conversor.converterFrequencia(looca.getProcessador().getFrequencia());
         this.maxRam = Conversor.converterDoubleDoisDecimais(Conversor.formatarBytes(looca.getMemoria().getTotal()));
-        this.maxDisco = Conversor.converterDoubleTresDecimais(Conversor.formatarBytes(looca.getGrupoDeDiscos().getTamanhoTotal()));
+        this.maxDisco = Conversor.converterDoubleDoisDecimais(Conversor.formatarBytes(looca.getGrupoDeDiscos().getTamanhoTotal()));
         this.hostName = looca.getRede().getParametros().getHostName();
     }
 

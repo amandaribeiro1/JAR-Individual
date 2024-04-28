@@ -205,7 +205,7 @@ public class Teste {
         coletaDados.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                Double consumoDisco = Conversor.converterDoubleTresDecimais(
+                Double consumoDisco = Conversor.converterDoubleDoisDecimais(
                         Conversor.formatarBytes(
                                 looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() -
                                         looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel()
@@ -226,7 +226,7 @@ public class Teste {
                         looca.getRede().getParametros().getHostName(),
                         formatarTempo(looca.getSistema().getTempoDeAtividade()),
                         looca.getProcessador().getUso(),
-                        Conversor.converterDoubleTresDecimais(
+                        Conversor.converterDoubleDoisDecimais(
                                 Conversor.formatarBytes(looca.getMemoria().getEmUso())
                         ),
                         consumoDisco

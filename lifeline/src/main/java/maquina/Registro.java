@@ -28,11 +28,11 @@ public class Registro {
     public Registro() {
         Double disco = 0.0;
         for (int i = 0; i < looca.getGrupoDeDiscos().getVolumes().size(); i++) {
-            disco += Conversor.converterDoubleTresDecimais(Conversor.formatarBytes(looca.getGrupoDeDiscos().getVolumes().get(i).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(i).getDisponivel()));
+            disco += Conversor.converterDoubleDoisDecimais(Conversor.formatarBytes(looca.getGrupoDeDiscos().getVolumes().get(i).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(i).getDisponivel()));
         }
         this.permanenciaDeDados = new Timer();
         this.consumoCPU = Conversor.converterDoubleDoisDecimais(looca.getProcessador().getUso());
-        this.consumoRam = Conversor.converterDoubleTresDecimais(Conversor.formatarBytes(looca.getMemoria().getEmUso()));
+        this.consumoRam = Conversor.converterDoubleDoisDecimais(Conversor.formatarBytes(looca.getMemoria().getEmUso()));
         this.consumoDisco = disco;
     }
 
