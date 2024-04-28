@@ -20,9 +20,6 @@ import java.util.TimerTask;
 
 public class Teste {
     public static void main(String[] args) {
-        Looca looca = new Looca();
-////        Usuario usuario = new Usuario("amandicaa@email.com", "senha123");
-
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("""
