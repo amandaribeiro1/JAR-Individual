@@ -40,11 +40,11 @@ public class Conversor {
     public static Double converterDoubleDoisDecimais(Double valorDouble) {
         DecimalFormat fmt = new DecimalFormat("0.00");
         String string = fmt.format(valorDouble);
-        String[] part = string.split("[,]");
+        String[] part = string.split("[.]");
         System.out.println(part.length);
         String string2 = part[0]+"."+part[1];
         if(part.length > 1){
-            string2 = part[0]+"."+part[0];
+            string2 = part[0]+"."+part[1];
         }else{
             string2 = part[0]+"."+part[0];
         }
