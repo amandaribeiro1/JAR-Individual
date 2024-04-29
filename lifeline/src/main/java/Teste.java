@@ -201,7 +201,10 @@ public class Teste {
     private static void maquinaAtual (){
         Looca looca = new Looca();
         Timer coletaDados = new Timer();
-
+        System.out.println(Conversor.formatarBytes(
+                looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() -
+                        looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel()
+        ));
         coletaDados.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
