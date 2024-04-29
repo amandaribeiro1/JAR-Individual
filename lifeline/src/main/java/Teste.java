@@ -205,10 +205,6 @@ public class Teste {
                 looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() -
                         looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel()
         ));
-        System.out.println(Conversor.formatarBytes(
-                looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() -
-                        looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel()
-        ));
         coletaDados.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
